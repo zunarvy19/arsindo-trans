@@ -10,13 +10,13 @@
 <body class="flex flex-col min-h-screen">
 
 <nav class="absolute top-0 left-0 w-full z-10">
-  <div class="px-6 py-4 flex justify-between">
+  <div class="px-6 py-4 flex ">
 
-    <div class="flex justify-start">
+    <div class="flex justify-start -mr-20">
       <img src="/img/arsindo.png" alt="Logo" class="w-40">
     </div>
 
-    <div class="flex items-center mx-auto">
+    <div class="flex items-center mx-auto ">
       <ul class="flex space-x-8 text-white font-semibold justify-center text-xl">
         <li>
           <a href="#home" class="hover:text-yellow-400 {{($title === 'Dashboard') ? 'underline text-secondary' : 'text-white'}} ">Beranda</a>

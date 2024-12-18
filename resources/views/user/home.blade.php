@@ -10,7 +10,7 @@
       <p class="mt-4 text-lg md:text-2xl container">
         Mulai petualangan Anda sekarang, pilih mobil impian Anda dan nikmati perjalanan tanpa khawatir. Pengalaman berkendara yang tak terlupakan dimulai di sini.
       </p>
-      <button class="mt-6 px-6 py-3 bg-yellow-400 text-white btn font-semibold rounded-lg hover:bg-yellow-500 transition duration-300">
+      <button class="mt-6 px-6 py-3 bg-yellow-400 text-white btn font-semibold rounded-lg hover:bg-yellow-400 transition duration-300 border-none">
         BOOK NOW!
       </button>
     </div>
@@ -285,74 +285,46 @@
     </div>
 
     <div>
-      <!-- Accordion Item 1 -->
-<div class="border-b border-slate-200 bg-white px-10 rounded-t">
-  <button onclick="toggleAccordion(1)" class="w-full flex justify-between items-center py-5 text-slate-800">
-    <span class="text-3xl font-semibold">Apakah bisa rental tanpa supir?</span>
-    <span id="icon-1" class="text-secondary transition-transform duration-300">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#FFC436" class="w-4 h-4">
-        <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
-      </svg>
-    </span>
-  </button>
-  <div id="content-1" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-    <div class="pb-5 text-lg text-slate-500">
-      Tidak bisa dikarenakan paket yang dipilih sudah termasuk supir yang mengendarai mobilnya.
-    </div>
-  </div>
-</div>
 
-<!-- Accordion Item 2 -->
-<div class="border-b border-slate-200 bg-white px-10 rounded-t">
-  <button onclick="toggleAccordion(2)" class="w-full flex justify-between items-center py-5 text-slate-800">
-    <span class="text-3xl font-semibold">Jika meminta waktu tambahan dalam waktu sewa?</span>
-    <span id="icon-2" class="text-secondary transition-transform duration-300">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#FFC436" class="w-4 h-4">
-        <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
-      </svg>
-    </span>
-  </button>
-  <div id="content-2" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-    <div class="pb-5 text-lg text-slate-500">
-      Bisa. nanti dalam proses pengembalian unit akan ditambahkan biaya tambahan dari biaya penyewaan
-    </div>
-  </div>
-</div>
 
-<!-- Accordion Item 3 -->
-<div class="border-b border-slate-200 bg-white px-10 rounded-t">
-  <button onclick="toggleAccordion(3)" class="w-full flex justify-between items-center py-5 text-slate-800">
-    <span class="text-3xl font-semibold">Perlu apa untuk menyewa unit dan jasa?</span>
-    <span id="icon-3" class="text-secondary transition-transform duration-300">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#FFC436" class="w-4 h-4">
-        <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
-      </svg>
-    </span>
-  </button>
-  <div id="content-3" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-    <div class="pb-5 text-lg text-slate-500">
-      Dengan membawa kartu tanda penduduk atau identitas diri untuk jaminan selama sewa jasa dan unit.
+      @foreach ($faq as $faq)
+          <!-- Accordion Item 1 -->
+          <div class="border-b border-slate-200 bg-white px-10 rounded-t">
+            <button onclick="toggleAccordion({{$faq->id}})" class="w-full flex justify-between items-center py-5 text-slate-800">
+              <span class="text-3xl font-semibold">{{$faq->question}}</span>
+              <span id="icon-{{$faq->id}}" class="text-secondary transition-transform duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#FFC436" class="w-4 h-4">
+                  <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
+                </svg>
+              </span>
+            </button>
+            <div id="content-{{$faq->id}}" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+              <div class="pb-5 text-lg text-slate-500">
+                {{$faq->answer}}
+              </div>
+            </div>
+          </div>
+      @endforeach
+
     </div>
-  </div>
-</div>
- 
+
 <script>
   function toggleAccordion(index) {
     const content = document.getElementById(`content-${index}`);
     const icon = document.getElementById(`icon-${index}`);
- 
+
     const minusSVG = `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
         <path d="M3.75 7.25a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Z" />
       </svg>
     `;
- 
+
     const plusSVG = `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
         <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
       </svg>
     `;
- 
+
     if (content.style.maxHeight && content.style.maxHeight !== '0px') {
       content.style.maxHeight = '0';
       icon.innerHTML = plusSVG;
