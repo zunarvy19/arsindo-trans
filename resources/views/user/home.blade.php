@@ -10,7 +10,7 @@
       <p class="mt-4 text-lg md:text-2xl container">
         Mulai petualangan Anda sekarang, pilih mobil impian Anda dan nikmati perjalanan tanpa khawatir. Pengalaman berkendara yang tak terlupakan dimulai di sini.
       </p>
-      <button class="mt-6 px-6 py-3 bg-yellow-400 text-black font-semibold rounded-lg hover:bg-yellow-500 transition duration-300">
+      <button class="mt-6 px-6 py-3 bg-yellow-400 text-white btn font-semibold rounded-lg hover:bg-yellow-500 transition duration-300">
         BOOK NOW!
       </button>
     </div>
@@ -76,7 +76,7 @@
                 <h2 class="card-title text-primary">Live Chat</h2>
                 <p>Memberikan bantuan dari chat melalui Whatsapp</p>
                 <div class="card-actions">
-                  <button class="btn btn-primary rounded-3xl text-md uppercase tracking-widest">Lihat Selengkapnya <span class="text-xl">
+                  <button class="btn bg-primary text-white rounded-3xl text-md uppercase tracking-widest hover:bg-primary">Lihat Selengkapnya <span class="text-xl">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                   </svg>
@@ -100,7 +100,7 @@
               <h2 class="card-title text-primary">Driver Berlisensi</h2>
               <p>Membuktikan supir yang berpengalaman di bidangnya</p>
               <div class="card-actions">
-                <button class="btn btn-primary rounded-3xl text-md uppercase tracking-widest">Lihat Selengkapnya <span class="text-xl">
+                <button class="btn bg-primary text-white rounded-3xl text-md uppercase tracking-widest hover:bg-primary">Lihat Selengkapnya <span class="text-xl">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
@@ -124,7 +124,7 @@
               <h2 class="card-title text-primary">Harga Kompetitif</h2>
               <p>Memberikan harga yang terjangkau dengan kualitas yang terbaik</p>
               <div class="card-actions">
-                <button class="btn btn-primary rounded-3xl text-md uppercase tracking-widest">Lihat Selengkapnya <span class="text-xl">
+                <button class="btn bg-primary text-white rounded-3xl text-md uppercase tracking-widest hover:bg-primary">Lihat Selengkapnya <span class="text-xl">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
@@ -149,7 +149,7 @@
               <h2 class="card-title text-primary">Pelayanan Terbaik</h2>
               <p>Nemberikan pelayanan berkualitas dan bermanfaat bagi pengguna</p>
               <div class="card-actions">
-                <button class="btn btn-primary rounded-3xl text-md uppercase tracking-widest">Lihat Selengkapnya <span class="text-xl">
+                <button class="btn bg-primary text-white rounded-3xl text-md uppercase tracking-widest hover:bg-primary">Lihat Selengkapnya <span class="text-xl">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
@@ -173,7 +173,7 @@
               <h2 class="card-title text-primary">Pilhan Mobil Beragam</h2>
               <p>Menampilkan berbagai macam jenis mobil yang diinginkan</p>
               <div class="card-actions">
-                <button class="btn btn-primary rounded-3xl text-md uppercase tracking-widest">Lihat Selengkapnya <span class="text-xl">
+                <button class="btn bg-primary text-white rounded-3xl text-md uppercase tracking-widest hover:bg-primary">Lihat Selengkapnya <span class="text-xl">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
@@ -197,7 +197,7 @@
               <h2 class="card-title text-primary">Fasilitas Berkualitas</h2>
               <p>Memberikan kualtas fasilitas mobil yang terjamin</p>
               <div class="card-actions">
-                <button class="btn btn-primary rounded-3xl text-md uppercase tracking-widest">Lihat Selengkapnya <span class="text-xl">
+                <button class="btn bg-primary text-white rounded-3xl text-md uppercase tracking-widest hover:bg-primary">Lihat Selengkapnya <span class="text-xl">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
@@ -222,7 +222,7 @@
       <div class="flex flex-row">
 
         <div class="w-1/2">
-          <img src="/img/premio.png" alt="" class="w-[100rem] h-[37rem]">
+          <img src="/img/premio.png" alt="" class="w-[120rem] ">
         </div>
 
       <div class="w-1/2 bg-tertiary">
@@ -247,7 +247,7 @@
       <div class="flex flex-row-reverse">
 
         <div class="w-1/2">
-          <img src="/img/xl7.png" alt="" class="w-[100rem] h-[37rem]">
+          <img src="/img/xl7.png" alt="" class="w-[120rem]">
         </div>
 
       <div class="w-1/2 bg-[#889293]">
@@ -258,7 +258,7 @@
             <p class="text-xl text-white ">Suzuki XL7 Hybrid memiliki kapasitas tempat duduk untuk 7 penumpang. <br> Mobil ini dirancang sebagai SUV keluarga dengan konfigurasi tiga baris kursi, menawarkan ruang yang cukup bagi seluruh penumpang.</p>
           </div>
           <div class="flex justify-start">
-            <button class="btn mt-24 bg-secondary border-none hover:bg-secondary">READ MORE <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <button class="btn mt-24 bg-secondary border-none hover:bg-secondary text-white">READ MORE <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
             </svg>
             </span></button>
