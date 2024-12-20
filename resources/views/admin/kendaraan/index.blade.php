@@ -4,25 +4,25 @@
 <section class="w-full">
   <div id="mainbar" class="fixed left-0 top-0 pt-16 w-full md:pl-64">
       <div class="px-4 md:px-8">
-          <h1 class="text-start capitalize text-3xl py-5">Data FAQs</h1>
+          <h1 class="text-start capitalize text-3xl py-5">Data Kendaraan</h1>
       <hr class="w-full border border-gray-200">
   
       <div class="mt-20">
   
           <div class="flex justify-between items-center ">
               <div class="flex flex-col">
-                  <h1 class="text-3xl" >FAQs</h1>
+                  <h1 class="text-3xl" >Kendaraan</h1>
                   <hr class="w-40 border-2 border-secondary my-4">
               </div>
               <div>
-                  <a href="/admin/faq/create">
+                  <a href="/admin/kendaraan/create">
                       <button type="button " class="btn btn-error text-white"
                         >Buat Data
                       </button>
                   </a>
               </div>
           </div>
-          
+    
           @php
               $no = 1;
           @endphp
@@ -32,21 +32,36 @@
   <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr>
           <th scope="col" class="px-4 py-1">No. </th>
-          <th scope="col" class="px-4 py-1">Question</th>
-          <th scope="col" class="px-4 py-4 ">Answer</th> 
+          <th scope="col" class="px-4 py-1">Ukuran</th>
+          <th scope="col" class="px-4 py-4 ">Mobil</th> 
+          <th scope="col" class="px-4 py-4 ">Kursi</th> 
+          <th scope="col" class="px-4 py-4 ">Pintu</th> 
+          <th scope="col" class="px-4 py-4 ">Bags</th> 
+          <th scope="col" class="px-4 py-4 ">Transmisi</th> 
+          <th scope="col" class="px-4 py-4 ">Harga</th> 
+          <th scope="col" class="px-4 py-4 ">Foto</th> 
           <th scope="col" class="px-4 py-3 text-center">Actions</th>
       </tr>
   </thead>
   <tbody>
-      @foreach ($question as $data)
+
+      @forelse ($detailMobil as $data)
       <tr class="border-b dark:border-gray-700">
           <th scope="row" class="px-4 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$no++}}</th>
-          <td class="px-4 py-3 capitalize">{{$data->question}}</td>
-          <td class="px-4 py-3">{{ $data->answer }}</td>
+          <td class="px-4 py-3 capitalize">{{$data->ukuran}}</td>
+          <td class="px-4 py-3">{{ $data->mobil }}</td>
+          <td class="px-4 py-3">{{ $data->kursi }}</td>
+          <td class="px-4 py-3">{{ $data->pintu }}</td>
+          <td class="px-4 py-3">{{ $data->bags }}</td>
+          <td class="px-4 py-3">{{ $data->transmisi }}</td>
+          <td class="px-4 py-3">Rp. {{ number_format($data->harga, 0) }}</td>
+          <td class="px-4 py-3">
+            <img src="{{ asset('storage/' . $data->foto) }}" alt="Foto {{ $data->mobil }}" class="w-16 h-16 object-cover rounded-md">
+          </td>
           <td class="px-4 py-3">
                   <ul class=" text-sm flex flex-col md:flex-row items-center justify-center" aria-labelledby="apple-imac-27-dropdown-button">
                       <li>
-                          <a href="/admin/faq/{{$data->id}}}/edit"> 
+                          <a href="/admin/kendaraan/{{$data->id}}}/edit"> 
                               <button type="button" data-modal-target="updateProductModal" data-modal-toggle="updateProductModal" class="flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-gray-700 dark:text-gray-200">
                                   <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                       <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
@@ -71,7 +86,13 @@
                   </ul>
           </td>
       </tr>
-      @endforeach
+      @empty
+      <tr>
+        <td colspan="9" class="px-4 py-3 text-center text-gray-500 dark:text-gray-400">
+            Tidak ada data yang bisa ditampilkan
+        </td>
+      </tr>
+      @endforelse
   </tbody>
   </table>
   </div>
