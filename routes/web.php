@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [userController::class, 'index'])->name('user.index');
+Route::get('/detailMobil', [userController::class, 'show'])->name('user.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -41,6 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/kendaraan/store', [DetailMobilController:: class, 'store'])->name('kendaraan.store');
     Route::get('/admin/kendaraan/{id}/edit', [DetailMobilController::class, 'edit'])->name('kendaraan.edit');
     Route::put('/admin/kendaraan/{id}', [DetailMobilController::class, 'update'])->name('kendaraan.update');
+    Route::delete('admin/kendaraan/{id}', [DetailMobilController::class, 'destroy'])-> name('kendaraan.destroy');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

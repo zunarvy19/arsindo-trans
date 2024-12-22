@@ -72,7 +72,7 @@
                           </a>
                       </li>
                       <li>
-                          <form id="delete-form-{{ $data->id }}"  action="{{ route('faq.destroy', $data->id) }}" method="POST">
+                          <form id="delete-form-{{ $data->id }}"  action="{{ route('kendaraan.destroy', $data->id) }}" method="POST">
                               @csrf
                               @method('DELETE')
                               <button onclick="confirmDelete({{ $data->id }})" class="flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 text-red-500 dark:hover:text-red-400">
