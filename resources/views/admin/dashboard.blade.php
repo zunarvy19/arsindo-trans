@@ -16,17 +16,17 @@
 
           <div class="w-auto md:w-[20%] px-14 py-10 bg-primary rounded-lg" id="card">
             <div class="font-bold text-white">
-              <h3 class="text-2xl">Jumlah Berita: </h3>
+              <h3 class="text-2xl">Jumlah Kendaraan: </h3>
               <h3 id="datenow" class="text-lg">...</h3>
-              <h3 id="datenow" class="text-lg">Berita</h3>
+              <h3 id="datenow" class="text-lg">Kendaraan</h3>
             </div>
           </div>
 
           <div class="w-auto md:w-[20%] p-10 bg-primary rounded-lg" id="card">
             <div class="font-bold text-white">
-              <h3 class="text-2xl">Jumlah Artikel: </h3>
+              <h3 class="text-2xl">Jumlah Order: </h3>
               <h3 class="text-lg">...</h3>
-              <h3 class="text-lg">Artikel</h3>
+              <h3 class="text-lg">Order</h3>
             </div>
           </div>
 

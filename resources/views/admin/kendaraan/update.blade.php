@@ -12,7 +12,7 @@
 
         <div class="flex justify-between items-center ">
             <div class="flex flex-col">
-                <h1 class="text-3xl" >Create Kendaraan</h1>
+                <h1 class="text-3xl" >Update Kendaraan</h1>
                 <hr class="w-40 border-2 border-secondary my-4">
             </div>
             <div>
@@ -26,7 +26,7 @@
         
         <section class="bg-white border rounded-lg">
             <div class=" px-4 py-8 mx-auto">
-                <h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Create Data Kendaraan</h2>
+                <h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Update Data Kendaraan</h2>
                 <form action="{{ route('kendaraan.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
@@ -45,7 +45,7 @@
                         <div class="w-full">
                             <label for="transmisi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Transmisi</label>
                             <select name="transmisi" id="transmisi" class="select select-bordered w-full">
-                              <option disabled {{ old('transmisi') ? '' : 'selected' }}>Pilih transmisi</option>
+                              <option disabled>Pilih transmisi</option>
                               <option value="Automatic" @selected(old('transmisi') == 'Automatic')>Automatic</option>
                               <option value="Manual" @selected(old('transmisi') == 'Manual')>Manual</option>
                           </select>                                                 

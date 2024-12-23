@@ -112,11 +112,14 @@ class DetailMobilController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(detailMobil $detailMobil)
     {
-        $data = detailMobil::findOrFail($id);
 
-        $data->delete();
+        if($detailMobil->foto){
+            Storage::delete($detailMobil->foto);
+        }
+
+        detailMobil::destroy($detailMobil->id);
 
         return redirect()->route('kendaraan.index');
     }

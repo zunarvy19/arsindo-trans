@@ -42,4 +42,8 @@ class userController extends Controller
             'dataMobil' => $dataMobil
         ]);
     }
+
+    public function book(){
+        return view('user.bookingMobil', ['title' => 'Booking Sekarang!']);
+    }
 }
