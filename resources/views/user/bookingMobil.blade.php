@@ -18,7 +18,7 @@
     {{-- header end --}}
 
 
-    <section class="w-full bg-center bg-cover h-[264px]" style="background-image: url('img/bookHero.png'); height: 264px;">
+    <section class="w-full bg-center bg-cover h-[264px]" style="background-image: url('/img/bookHero.png'); height: 264px;">
       <div class="flex justify-center items-center h-full">
         <h1 class="text-6xl text-white font-bold capitalize">sewa jasa termurah di jakarta</h1>
       </div>
@@ -31,14 +31,14 @@
       <div class="my-20 container mx-auto">
         <div class="flex flex-row space-x-20">
           {{-- choosen card --}}
-          <div class="bg-primary container w-[120%] p-10 flex flex-row rounded-lg h-full">
-            <img src="img/avanza.png" alt="">
+          <div class="bg-primary container w-full py-8 px-2 flex flex-row rounded-lg h-full">
+            <img src="{{ asset('storage/' . $kendaraan->foto) }}" alt="" class="w-1/2">
             <div class="flex flex-col text-white space-y-5">
-              <h1 class="text-2xl font-semibold">Hiace Premio</h1>
-              <p class="flex flex-row items-center gap-x-2"><span><img src="img/checkbox.png" alt=""></span>Direkomendasikan 12 orang penumpang</p>
-              <p class="flex flex-row items-center gap-x-2"><span><img src="img/checkbox.png" alt=""></span>Free untuk akses jalan tol yang akan dilewati</p>
-              <p class="flex flex-row items-center gap-x-2"><span><img src="img/checkbox.png" alt=""></span>Bensin disediakan tidak perlu membayar lagi</p>
-              <p class="flex flex-row items-center gap-x-2"><span><img src="img/checkbox.png" alt=""></span>Bebas bayar parkir</p>
+              <h1 class="text-2xl font-semibold">{{$kendaraan->mobil}}</h1>
+              <p class="flex flex-row items-center gap-x-2"><span><img src="/img/checkbox.png" alt=""></span>Direkomendasikan <span>{{$kendaraan->kursi}}</span> orang penumpang</p>
+              <p class="flex flex-row items-center gap-x-2"><span><img src="/img/checkbox.png" alt=""></span>Free untuk akses jalan tol yang akan dilewati</p>
+              <p class="flex flex-row items-center gap-x-2"><span><img src="/img/checkbox.png" alt=""></span>Bensin disediakan tidak perlu membayar lagi</p>
+              <p class="flex flex-row items-center gap-x-2"><span><img src="/img/checkbox.png" alt=""></span>Bebas bayar parkir</p>
             </div>
           </div>
           {{-- choosen card end --}}
@@ -46,65 +46,96 @@
           <div class="bg-secondary container p-10 rounded-xl">
             <h1 class="text-3xl font-bold mb-10">Formulir Sewa Jasa Mobil</h1>
             {{-- form --}}
-            <form action="">
-                         {{-- nama --}}
-            <div>
-              <label for="nama">Nama Lengkap: </label>
-              <input type="text" name="nama" placeholder="Masukkan nama..." class="input-bordered w-full">
-            </div>
-            {{-- nama end --}}
+            <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data" id="bookingForm">
+              @csrf
+              @method('POST')
 
-            {{-- alamat start --}}
-            <div class="my-5">
-              <label for="alamat">Alamat Penjemputan: </label>
-              <input type="text" name="alamat" placeholder="Masukkan Alamat..." class="input-bordered w-full">
-            </div>
-            {{-- alamat end --}}
-
-            {{-- time container --}}
-
-            {{-- jemput --}}
-            <div class="flex flex-row mb-5">
-              <div class="flex flex-col w-72">
-                <label for="tanggaljemput">Tanggal Penjemputan: </label>
-                <input type="date" name="tanggaljemput" id="">
+              <input type="hidden" name="mobil_id" value="{{ $kendaraan->id }}">
+          
+              <!-- Nama Lengkap -->
+              <div>
+                  <label for="nama">Nama Lengkap: </label>
+                  <input type="text" name="namalengkap" placeholder="Masukkan nama..." class="input-bordered w-full" required>
+                  @error('namalengkap')
+                      <div class="text-red-500 text-sm">{{ $message }}</div>
+                  @enderror
               </div>
-            <div class="divider divider-horizontal h-20 "></div> 
-            <div class="flex flex-col w-72">
-              <label for="jamjemput">Waktu (jam)</label>
-              <input type="time" name="jamjemput" id="">
-            </div>
-            </div>
-            {{-- jemput end --}}
-
-            {{-- antar --}}
-            <div class="flex flex-row mb-3">
-              <div class="flex flex-col w-72">
-                <label for="tanggaljemput">Tanggal Pengantaran: </label>
-                <input type="date" name="tanggaljemput" id="">
+          
+              <!-- Alamat -->
+              <div class="my-5">
+                  <label for="alamat">Alamat Penjemputan: </label>
+                  <input type="text" name="alamatpenjemputan" placeholder="Masukkan Alamat..." class="input-bordered w-full">
+                  @error('alamat')
+                      <div class="text-red-500 text-sm">{{ $message }}</div>
+                  @enderror
               </div>
-            <div class="divider divider-horizontal h-20"></div> 
-            <div class="flex flex-col w-72">
-              <label for="jamjemput">Waktu (jam)</label>
-              <input type="time" name="jamjemput" id="" class="">
-            </div>
-            </div>
-            {{-- antar end --}}
-
-            {{-- identitas --}}
-            <div class="flex flex-col">
-              <label for="identitas">Upload Identitas (KTP/SIM) : </label>
-              <input type="file" class="file-input file-input-bordered file-input-md w-full max-w-xs" />
-            </div>
-            {{-- identitas --}}
-
-            <div class="flex justify-end items-end mt-20">
-              <button class="btn btn-lg bg-primary border-none text-white rounded-full px-10 hover:bg-primary shadow-xl">Book Now!</button>
-            </div>
-
-            {{-- form end --}}
-            </form>
-
+          
+              <!-- Tanggal dan Waktu Penjemputan -->
+              <div class="flex flex-row mb-5">
+                  <div class="flex flex-col w-72">
+                      <label for="tanggalpenjemputan">Tanggal Penjemputan: </label>
+                      <input type="date" name="tanggalpenjemputan" required>
+                      @error('tanggalpenjemputan')
+                          <div class="text-red-500 text-sm">{{ $message }}</div>
+                      @enderror
+                  </div>
+                  <div class="divider divider-horizontal h-20"></div>
+                  <div class="flex flex-col w-72">
+                      <label for="waktupenjemputan">Waktu Penjemputan (jam): </label>
+                      <input type="time" name="waktupenjemputan" required>
+                      @error('waktupenjemputan')
+                          <div class="text-red-500 text-sm">{{ $message }}</div>
+                      @enderror
+                  </div>
+              </div>
+          
+              <!-- Tanggal dan Waktu Pengantaran -->
+              <div class="flex flex-row mb-5">
+                  <div class="flex flex-col w-72">
+                      <label for="tanggalpengantaran">Tanggal Pengantaran: </label>
+                      <input type="date" name="tanggalpengantaran" required>
+                      @error('tanggalpengantaran')
+                          <div class="text-red-500 text-sm">{{ $message }}</div>
+                      @enderror
+                  </div>
+                  <div class="divider divider-horizontal h-20"></div>
+                  <div class="flex flex-col w-72">
+                      <label for="waktupengantaran">Waktu Pengantaran (jam): </label>
+                      <input type="time" name="waktupengantaran" required>
+                      @error('waktupengantaran')
+                          <div class="text-red-500 text-sm">{{ $message }}</div>
+                      @enderror
+                  </div>
+              </div>
+          
+              <!-- Identitas -->
+              <div class="flex flex-row mb-5">
+                  <div class="flex flex-col w-72">
+                      <label for="identitas">Upload Identitas (KTP/SIM): </label>
+                      <input accept="image/*" type="file" name="identitas" class="file-input file-input-bordered file-input-md w-full" required>
+                      @error('identitas')
+                          <div class="text-red-500 text-sm">{{ $message }}</div>
+                      @enderror
+                  </div>
+                  <div class="divider divider-horizontal h-20"></div>
+                  <div class="flex flex-col">
+                      <label for="tourguide">Perlu Tourguide?</label>
+                      <select name="tourguide" class="select w-full max-w-xs" required>
+                          <option value="1">Perlu Tourguide</option>
+                          <option value="0">Tidak perlu Tourguide</option>
+                      </select>
+                      @error('tourguide')
+                          <div class="text-red-500 text-sm">{{ $message }}</div>
+                      @enderror
+                  </div>
+              </div>
+          
+              <!-- Tombol Submit -->
+              <div class="flex justify-end items-end mt-20">
+                  <button type="submit" class="btn btn-lg bg-primary border-none text-white rounded-full px-10 hover:bg-primary shadow-xl" id="submitBtn">Book Now!</button>
+              </div>
+          </form>
+                
           </div>
         </div>
 
@@ -182,5 +213,46 @@
       </nav>
     </footer>
     </footer>
+
+
+    <script>
+          document.getElementById('submitBtn').addEventListener('click', function () {
+
+        const form = document.getElementById('bookingForm');
+        const formData = new FormData(form);
+
+        const namalengkap = formData.get('namalengkap');
+        const alamatpenjemputan = formData.get('alamatpenjemputan');
+        const tanggalpenjemputan = formatTanggal(formData.get('tanggalpenjemputan'));
+        const waktupenjemputan = formData.get('waktupenjemputan');
+        const tanggalpengantaran = formatTanggal(formData.get('tanggalpengantaran'));
+        const waktupengantaran = formData.get('waktupengantaran');
+        const tourguide = formData.get('tourguide') === '1' ? 'Ya' : 'Tidak';
+
+        
+        const message = `
+            Halo Arsindo! Saya ingin booking kendaraan dengan informasi sebagai berikut:
+            Nama Lengkap: ${namalengkap}
+            Alamat Penjemputan: ${alamatpenjemputan}
+            Tanggal Penjemputan: ${tanggalpenjemputan}
+            Waktu Penjemputan: ${waktupenjemputan}
+            Tanggal Pengantaran: ${tanggalpengantaran}
+            Waktu Pengantaran: ${waktupengantaran}
+            Perlu Tourguide: ${tourguide}
+        `.trim();
+
+        const phoneNumber = '6289676570369'; 
+
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+        window.open(whatsappURL, '_blank');
+    });
+
+    function formatTanggal(tanggal) {
+        const [year, month, day] = tanggal.split('-');
+        return `${day}-${month}-${year}`;
+    }
+    </script>
+    
 </body>
 </html>

@@ -12,4 +12,8 @@ class detailMobil extends Model
     protected $fillable = [
         'ukuran', 'mobil', 'foto', 'kursi', 'pintu', 'bags', 'transmisi', 'harga'
     ];
+
+    public function booking(){
+        return $this->hasMany(booking::class);
+    }
 }

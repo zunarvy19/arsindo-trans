@@ -33,7 +33,7 @@ class DetailMobilController extends Controller
     public function store(Request $request)
     {
 
-        // ddd($request);
+        // dd($request->all());
         $validatedData = $request->validate([
             'ukuran' => ['string', 'required'],
             'mobil' => ['string', 'required'],

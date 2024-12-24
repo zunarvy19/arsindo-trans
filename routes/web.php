@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\AskedQuestionController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DetailMobilController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\userController;
@@ -20,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [userController::class, 'index'])->name('user.index');
 Route::get('/detail-mobil', [userController::class, 'show'])->name('user.show');
-Route::get('/booking-mobil', [userController::class, 'book'])->name('user.book');
+Route::get('/booking-mobil/{id}', [BookingController::class, 'book'])->name('user.book');
+Route::post('/booking-mobil/store', [BookingController::class, 'store'])->name('user.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

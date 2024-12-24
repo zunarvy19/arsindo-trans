@@ -24,7 +24,7 @@
       {{-- maps --}}
       <div class="flex flex-col mb-5">
           <h1 class="font-bold text-2xl my-2">Google Maps Location</h1>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.6553800511347!2d106.78866658607424!3d-6.308925277385602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ef19048ebbb1%3A0xcf46c174b665d7e2!2sTirta%20Agung%20Teknik!5e0!3m2!1sid!2sid!4v1734852864036!5m2!1sid!2sid" width="550" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.7391454447584!2d106.84797789999999!3d-6.297969200000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698b467c0e38f7%3A0x60c1eaa28ce69f5f!2sCV%20ARSINDO%20-%20Rental%20Mobil%20Indonesia!5e0!3m2!1sid!2sid!4v1735056421925!5m2!1sid!2sid" width="550" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
 
       <form action="{{ route('user.show') }}" method="GET">
@@ -158,7 +158,7 @@
                 <h1>Price for 2 days</h1>
                 <h1 class="text-2xl font-bold">IDR {{ number_format($item->harga, 0, ',', '.') }}</h1>
                 <h1 class="text-[#09A03B] text-base">Free Cancellation</h1>
-                <a href="#" class="btn btn-secondary bg-secondary border-none hover:bg-secondary px-10 rounded-full">Book Now!</a>
+                <a href="/booking-mobil/{{$item->id}}" class="btn btn-secondary bg-secondary border-none hover:bg-secondary px-10 rounded-full">Book Now!</a>
             </div>
         </div>
     </div>
