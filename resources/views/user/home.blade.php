@@ -11,7 +11,7 @@
         Mulai petualangan Anda sekarang, pilih mobil impian Anda dan nikmati perjalanan tanpa khawatir. Pengalaman berkendara yang tak terlupakan dimulai di sini.
       </p>
       <button class="mt-6 px-6 py-3 bg-yellow-400 text-white btn font-semibold rounded-lg hover:bg-yellow-400 transition duration-300 border-none">
-        BOOK NOW!
+       <a href="/detail-mobil">Book Now</a>
       </button>
     </div>
     <div class="flex mt-[30rem]">
@@ -233,7 +233,7 @@
             <p class="text-xl text-white ">Toyota Hiace dapat menampung antara 10 <br> hingga 16 penumpang, tergantung pada model <br> dan konfigurasi kursi.</p>
           </div>
           <div class="flex justify-end">
-            <button class="btn mt-24 bg-primary border-none hover:bg-primary text-white">READ MORE <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <button class="btn mt-24 bg-primary border-none hover:bg-primary text-white uppercase"><a href="/detail-mobil">Read More</a> <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
             </svg>
             </span></button>
@@ -258,7 +258,7 @@
             <p class="text-xl text-white ">Suzuki XL7 Hybrid memiliki kapasitas tempat duduk untuk 7 penumpang. <br> Mobil ini dirancang sebagai SUV keluarga dengan konfigurasi tiga baris kursi, menawarkan ruang yang cukup bagi seluruh penumpang.</p>
           </div>
           <div class="flex justify-start">
-            <button class="btn mt-24 bg-secondary border-none hover:bg-secondary text-white">READ MORE <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <button class="btn mt-24 bg-secondary border-none hover:bg-secondary text-white uppercase"><a href="/detail-mobil">Read More</a> <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
             </svg>
             </span></button>

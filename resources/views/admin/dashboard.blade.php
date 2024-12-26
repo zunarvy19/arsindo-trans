@@ -14,7 +14,7 @@
 
         <div class="flex justify-center flex-wrap flex-col md:flex-row gap-8">
 
-          <div class="w-auto md:w-[20%] px-14 py-10 bg-primary rounded-lg" id="card">
+          <div class="w-auto md:w-[20%] px-14 py-10 bg-secondary rounded-lg" id="card">
             <div class="font-bold text-white">
               <h3 class="text-2xl">Jumlah Kendaraan: </h3>
               <h3 id="datenow" class="text-lg">{{$kendaraan->count()}}</h3>
@@ -22,10 +22,10 @@
             </div>
           </div>
 
-          <div class="w-auto md:w-[20%] p-10 bg-primary rounded-lg" id="card">
+          <div class="w-auto md:w-[20%] p-10 bg-secondary rounded-lg" id="card">
             <div class="font-bold text-white">
               <h3 class="text-2xl">Jumlah Order: </h3>
-              <h3 class="text-lg">...</h3>
+              <h3 class="text-lg">{{$booking->count()}}</h3>
               <h3 class="text-lg">Order</h3>
             </div>
           </div>

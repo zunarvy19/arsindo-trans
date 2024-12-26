@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\detailMobil;
 
 class booking extends Model
 {
@@ -16,6 +17,6 @@ class booking extends Model
     ];
 
     public function detailMobil(){
-        return $this->belongsTo(booking::class);
+        return $this->belongsTo(detailMobil::class, 'mobil_id');
     }
 }

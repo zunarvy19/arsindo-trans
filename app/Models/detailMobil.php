@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\booking;
 
 class detailMobil extends Model
 {
@@ -13,7 +14,7 @@ class detailMobil extends Model
         'ukuran', 'mobil', 'foto', 'kursi', 'pintu', 'bags', 'transmisi', 'harga'
     ];
 
-    public function booking(){
+    public function bookings(){
         return $this->hasMany(booking::class);
     }
 }

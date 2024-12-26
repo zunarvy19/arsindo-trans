@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\booking;
 use Illuminate\Http\Request;
 use App\Models\detailMobil;
+use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class BookingController extends Controller
 {
@@ -17,9 +20,12 @@ class BookingController extends Controller
         // dd($kendaraan);
         return view('user.bookingMobil', ['title' => 'Booking Sekarang!'], compact('kendaraan'));
     }
+
     public function index()
     {
-        
+        $dataBooking = booking::with('detailMobil')->get();
+        // dd($dataBooking);
+        return view('admin.order.index', ['title'=> 'Booking Arsindo'], compact('dataBooking'));
     }
 
     /**
@@ -89,6 +95,23 @@ class BookingController extends Controller
      */
     public function destroy(booking $booking)
     {
-        //
+        if($booking -> foto){
+            Storage::delete($booking -> foto);
+        }
+
+        booking::destroy($booking->id);
+
+        return redirect()->route('booking.index')->with('success', 'Booking berhasil dihapus!');
     }
+
+
+    public function generatePDF($id)
+    {
+        $dataBooking = booking::with(['detailMobil'])->findOrFail($id);
+
+        $pdf = Pdf::loadView('pdf.invoice', compact('dataBooking'));
+        return $pdf->setPaper('a4', 'portrait')->stream('booking-data.pdf');
+    }
+
+
 }

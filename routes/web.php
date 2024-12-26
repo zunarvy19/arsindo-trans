@@ -24,6 +24,7 @@ Route::get('/detail-mobil', [userController::class, 'show'])->name('user.show');
 Route::get('/booking-mobil/{id}', [BookingController::class, 'book'])->name('user.book');
 Route::post('/booking-mobil/store', [BookingController::class, 'store'])->name('user.store');
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -46,6 +47,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/kendaraan/{id}/edit', [DetailMobilController::class, 'edit'])->name('kendaraan.edit');
     Route::put('/admin/kendaraan/{id}', [DetailMobilController::class, 'update'])->name('kendaraan.update');
     Route::delete('admin/kendaraan/{detailMobil}', [DetailMobilController::class, 'destroy'])-> name('kendaraan.destroy');
+
+    // order 
+    route::get("/admin/order/index", [BookingController::class, 'index'])->name('booking.index');
+    route::delete('/admin/order/{booking}', [BookingController::class, 'destroy'])->name('booking.destroy');
+    Route::get('/booking-pdf/{id}', [BookingController::class, 'generatePDF'])->name('booking.pdf');
+    
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

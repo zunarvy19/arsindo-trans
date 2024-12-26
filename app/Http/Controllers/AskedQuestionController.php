@@ -16,7 +16,7 @@ class AskedQuestionController extends Controller
     {
         $question = askedQuestion::all()->sortBy('created_at');
 
-        return view('admin.faq.index', ["title" => 'FAQs'], compact('question'));
+        return view('admin.faq.index', ["title" => 'FAQs Arsindo'], compact('question'));
     }
 
     /**

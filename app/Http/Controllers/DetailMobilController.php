@@ -15,7 +15,7 @@ class DetailMobilController extends Controller
     {
         $detailMobil = detailMobil::all()->sortBy('created_at');
 
-        return view('admin.kendaraan.index', ['title' => 'Kendaraan'], compact('detailMobil'));
+        return view('admin.kendaraan.index', ['title' => 'Kendaraan Arsindo'], compact('detailMobil'));
     }
 
     /**
