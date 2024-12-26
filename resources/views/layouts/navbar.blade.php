@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="light" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title> {{$title}}Current</title>
+  <title> {{$title}} Arsindo</title>
   @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body class="flex flex-col min-h-screen">
@@ -19,13 +19,13 @@
     <div class="flex items-center mx-auto ">
       <ul class="flex space-x-8 text-white font-semibold justify-center text-xl">
         <li>
-          <a href="#home" class="hover:text-yellow-400 {{($title === 'Dashboard') ? 'underline text-secondary' : 'text-white'}} ">Beranda</a>
+          <a href="#home" class=" hover:underline hover:text-secondary">Beranda</a>
         </li>
         <li>
-          <a href="#layanan" class="hover:text-yellow-400">Layanan</a>
+          <a href="#layanan" class="hover:underline hover:text-secondary">Layanan</a>
         </li>
         <li>
-          <a href="#faq" class="hover:text-yellow-400">FAQ's</a>
+          <a href="#faq" class="hover:underline hover:text-secondary">FAQ's</a>
         </li>
       </ul>
     </div>

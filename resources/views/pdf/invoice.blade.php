@@ -59,7 +59,7 @@
             margin: 5px 0;
         }
         .footer {
-            margin-top: 100px;
+            margin-top: 60px;
             text-align: start;
         }
         .footerHeader {
@@ -103,7 +103,7 @@
               <td>{{ $dataBooking->detailMobil->mobil }}</td>
           </tr>
               <th>Harga Sewa</th>
-              <td>{{ $dataBooking->detailMobil->harga }}</td>
+              <td>{{ number_format($dataBooking->detailMobil->harga, 0, ',', '.') }}</td>
           </tr>
           <tr>
               <th>Alamat Penjemputan</th>
@@ -131,8 +131,8 @@
           </tr>
       </table>
         <div class="total-section">
-            <p>Sub-total: Rp {{ number_format($dataBooking->detailMobil->harga, 0) }}</p>
-            <h3>Total: Rp {{ number_format($dataBooking->detailMobil->harga, 0) }}</h3>
+            <p>Sub-total: Rp {{ number_format($dataBooking->detailMobil->harga, 0, ',', '.') }}</p>
+            <h3>Total: Rp {{ number_format($dataBooking->detailMobil->harga, 0, ',', '.') }}</h3>
         </div>
         <div class="footer">
             <p class="footerHeader">Thank you for your purchase!</p>

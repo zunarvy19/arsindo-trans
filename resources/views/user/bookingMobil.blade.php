@@ -51,6 +51,7 @@
               @method('POST')
 
               <input type="hidden" name="mobil_id" value="{{ $kendaraan->id }}">
+              <input type="hidden" name="mobil" value="{{ $kendaraan->mobil }}" hidden>
           
               <!-- Nama Lengkap -->
               <div>
@@ -223,6 +224,7 @@
 
         const namalengkap = formData.get('namalengkap');
         const alamatpenjemputan = formData.get('alamatpenjemputan');
+        const mobil = formData.get('mobil');
         const tanggalpenjemputan = formatTanggal(formData.get('tanggalpenjemputan'));
         const waktupenjemputan = formData.get('waktupenjemputan');
         const tanggalpengantaran = formatTanggal(formData.get('tanggalpengantaran'));
@@ -233,6 +235,7 @@
         const message = `
             Halo Arsindo! Saya ingin booking kendaraan dengan informasi sebagai berikut:
             Nama Lengkap: ${namalengkap}
+            Mobil: ${mobil}
             Alamat Penjemputan: ${alamatpenjemputan}
             Tanggal Penjemputan: ${tanggalpenjemputan}
             Waktu Penjemputan: ${waktupenjemputan}
