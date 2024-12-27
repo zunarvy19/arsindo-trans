@@ -46,4 +46,8 @@ class userController extends Controller
     public function book(){
         return view('user.bookingMobil', ['title' => 'Booking Sekarang!']);
     }
+
+    public function review(){
+        return view('user.customerReview', ['title' => 'Customer Review']);
+    }
 }

@@ -85,11 +85,14 @@
             @endif
         @endforeach
 
-        <select name="sort" class="select border border-gray-400 rounded-full w-full text-base capitalize" onchange="this.form.submit()">
-            <option value="" {{ request('sort') === null ? 'selected' : '' }}>Sort by: recommended</option>
-            <option value="price_asc" {{ request('sort') === 'price_asc' ? 'selected' : '' }}>Price: Low to High</option>
-            <option value="price_desc" {{ request('sort') === 'price_desc' ? 'selected' : '' }}>Price: High to Low</option>
-        </select>
+        <div class="flex flex-row justify-between">
+            <select name="sort" class="select border border-gray-400 rounded-full w-full text-base capitalize" onchange="this.form.submit()">
+                <option value="" {{ request('sort') === null ? 'selected' : '' }}>Sort by: recommended</option>
+                <option value="price_asc" {{ request('sort') === 'price_asc' ? 'selected' : '' }}>Price: Low to High</option>
+                <option value="price_desc" {{ request('sort') === 'price_desc' ? 'selected' : '' }}>Price: High to Low</option>
+            </select>
+            <button class="flex justify-end items-center -mr-[155%] btn bg-primary text-white px-12 hover:bg-primary text-lg"><a href="/">Home</a></button>
+        </div>
     </form>
 </div>
 

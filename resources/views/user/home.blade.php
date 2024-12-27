@@ -51,7 +51,7 @@
 {{-- Brand end --}}
 
 {{-- Service Start --}}
-<div class="w-screen h-auto bg-primary py-32">
+<div class="w-screen h-auto bg-primary pt-32">
 
   <div class="space-y-8">
     <h1 class="text-center text-white text-4xl md:text-6xl font-bold" id="layanan">Layanan Kami</h1>
@@ -283,15 +283,134 @@
 
       </div>
     </div>
-
-  <div>
-    <h1 class="text-center p-8 text-5xl text-white capitalize"><a href="/detail-mobil">View More Car</a></h1>
-  </div>
+  
 </div>
 </div>
 {{-- Facility End --}}
 
-<div class="bg-primary w-screen min-h-screen h-auto ">
+<div class=" bg-primary">
+  <h1 class="text-center pt-20 p-8 text-5xl text-secondary font-bold underline underline-offset-8 capitalize"><a href="/detail-mobil">View More Car</a></h1>
+</div>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <path fill="#0174be" fill-opacity="1" d="M0,32L48,53.3C96,75,192,117,288,144C384,171,480,181,576,176C672,171,768,149,864,133.3C960,117,1056,107,1152,117.3C1248,128,1344,160,1392,176L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+</svg>
+
+<div class="bg-secondary w-screen">
+  <div class="flex flex-row justify-around items-center">
+    {{-- words --}}
+    <div>
+      <h1 class="text-6xl font-semibold text-white capitalize mb-6">What our <br>customer says </h1>
+      <button class="btn bg-primary border-none btn-wide text-xl text-white shadow-lg hover:bg-primary"><a href="/cust-review">View More</a></button>
+    </div>
+    <div>
+      <div class="carousel carousel-vertical rounded-box h-96 -space-y-48">
+        <div class="carousel-item h-full">
+          <div class="w-[80%] h-fit mx-auto p-6 bg-white shadow-lg rounded-lg flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4">
+            <!-- Image Section -->
+            <div class="w-24 h-24 rounded-full border-2 border-blue-500 overflow-hidden">
+              <img
+                src="/img/prof1.jpg" 
+                alt="Profile Picture" 
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <!-- Text Content -->
+            <div class="flex-1">
+              <h3 class="text-lg font-bold">Calvin Chang</h3>
+              <p class="text-gray-600 mt-2">
+                Berkendara dengan jasa ArsindoTours sangat seru dan dapat diandalkan dari segi teknis dan pelayanan nya
+              </p>
+            </div>
+            <!-- Quote Icon -->
+            <div class="text-blue-500 text-3xl">
+              <i class="fas fa-quote-right"></i>
+            </div>
+          </div>          
+        </div>
+        <div class="carousel-item h-full">
+          <div class="w-[80%] h-fit mx-auto p-6 bg-white shadow-lg rounded-lg flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4">
+            <!-- Image Section -->
+            <div class="w-24 h-24 rounded-full border-2 border-blue-500 overflow-hidden">
+              <img
+                src="/img/prof5.jpg" 
+                alt="Profile Picture" 
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <!-- Text Content -->
+            <div class="flex-1">
+              <h3 class="text-lg font-bold">Angela Martin</h3>
+              <p class="text-gray-600 mt-2">
+                Saya sangat menghargai fleksibilitas dan kehandalan ArsindoTours. Mereka benar-benar memahami kebutuhan pelanggan.
+              </p>
+            </div>
+            <!-- Quote Icon -->
+            <div class="text-blue-500 text-3xl">
+              <i class="fas fa-quote-right"></i>
+            </div>
+          </div>          
+        </div>
+        <div class="carousel-item h-full">
+          <div class="w-[80%] h-fit mx-auto p-6 bg-white shadow-lg rounded-lg flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4">
+            <!-- Image Section -->
+            <div class="w-24 h-24 rounded-full border-2 border-blue-500 overflow-hidden">
+              <img
+                src="/img/prof2.jpg" 
+                alt="Profile Picture" 
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <!-- Text Content -->
+            <div class="flex-1">
+              <h3 class="text-lg font-bold">Michael Murphy</h3>
+              <p class="text-gray-600 mt-2">
+                Layanan mereka sangat cepat dan kendaraan yang digunakan dalam kondisi prima. Saya pasti akan kembali!
+              </p>
+            </div>
+            <!-- Quote Icon -->
+            <div class="text-blue-500 text-3xl">
+              <i class="fas fa-quote-right"></i>
+            </div>
+          </div>          
+        </div>
+        <div class="carousel-item h-full">
+          <div class="w-[80%] h-fit mx-auto p-6 bg-white shadow-lg rounded-lg flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4">
+            <!-- Image Section -->
+            <div class="w-24 h-24 rounded-full border-2 border-blue-500 overflow-hidden">
+              <img
+                src="/img/prof6.jpg" 
+                alt="Profile Picture" 
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <!-- Text Content -->
+            <div class="flex-1">
+              <h3 class="text-lg font-bold">Selena White</h3>
+              <p class="text-gray-600 mt-2">
+                ArsindoTours benar-benar memberikan pengalaman perjalanan yang luar biasa. Rekomendasi terbaik untuk perjalanan bisnis atau liburan!
+              </p>
+            </div>
+            <!-- Quote Icon -->
+            <div class="text-blue-500 text-3xl">
+              <i class="fas fa-quote-right"></i>
+            </div>
+          </div>          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <path fill="#0174be" fill-opacity="1" d="M0,32L48,53.3C96,75,192,117,288,144C384,171,480,181,576,176C672,171,768,149,864,133.3C960,117,1056,107,1152,117.3C1248,128,1344,160,1392,176L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+
+</svg>
+
+
+
+<div class="bg-primary w-screen min-h-screen ">
 
   <div class="flex flex-col justify-center items-center h-screen">
 
