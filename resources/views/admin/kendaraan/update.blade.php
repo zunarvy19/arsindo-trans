@@ -43,33 +43,15 @@
                     </div>
                     <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
                         <div class="w-full">
-                            <label for="transmisi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Transmisi</label>
-                            <select name="transmisi" id="transmisi" class="select select-bordered w-full">
-                              <option disabled>Pilih transmisi</option>
-                              <option value="Automatic" @selected(old('transmisi') == 'Automatic')>Automatic</option>
-                              <option value="Manual" @selected(old('transmisi') == 'Manual')>Manual</option>
-                          </select>                                                 
-                        </div>
-                        <div class="w-full">
                             <label sel for="kursi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kursi</label>
                             <input type="number" name="kursi" id="kursi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="e.g 3" required @required(true) inputmode="numeric" pattern="[0-9]*" value="{{old('kursi', $data->kursi)}}">
                         </div>   
+                        <div class="w-full">
+                            <label for="harga" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga</label>
+                            <input type="number" name="harga" id="harga" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Input Answer" inputmode="numeric" pattern="[0-9]*" required @required(true) value="{{old('harga', $data->harga)}}">
+                        </div> 
                     </div>
                     <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
-                        <div class="w-full">
-                            <label for="pintu" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pintu</label>
-                            <input type="number" name="pintu" id="pintu" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="e.g 2" @required(true) inputmode="numeric" pattern="[0-9]*"  value="{{old('pintu', $data->pintu)}}">
-                        </div>
-                        <div class="w-full">
-                            <label for="bags" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bags</label>
-                            <input type="number" name="bags" id="bags" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="e.g 2" required @required(true) inputmode="numeric" pattern="[0-9]*" value="{{old('bags', $data->bags)}}">
-                        </div>   
-                    </div>
-                    <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
-                      <div class="w-full">
-                        <label for="harga" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga</label>
-                        <input type="number" name="harga" id="harga" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Input Answer" inputmode="numeric" pattern="[0-9]*" required @required(true) value="{{old('harga', $data->harga)}}">
-                      </div> 
                         <div class="w-full">
                           <label for="foto" class="block text-sm font-medium text-gray-900 dark:text-white">Foto</label>
                           <input  accept="image/*"  type="file" name="foto" id="foto" class="file-input file-input-bordered text-gray-900 block w-full" @required(true) >

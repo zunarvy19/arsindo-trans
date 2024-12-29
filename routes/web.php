@@ -45,8 +45,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/kendaraan/index', [DetailMobilController::class, 'index'])->name('kendaraan.index');
     Route::get('/admin/kendaraan/create', [DetailMobilController::class, 'create'])->name('kendaraan.create');
     Route::post('/admin/kendaraan/store', [DetailMobilController:: class, 'store'])->name('kendaraan.store');
-    Route::get('/admin/kendaraan/{id}/edit', [DetailMobilController::class, 'edit'])->name('kendaraan.edit');
-    Route::put('/admin/kendaraan/{id}', [DetailMobilController::class, 'update'])->name('kendaraan.update');
+    Route::get('/admin/kendaraan/{detailMobil}/edit', [DetailMobilController::class, 'edit'])->name('kendaraan.edit');
+    Route::put('/admin/kendaraan/{detailMobil}', [DetailMobilController::class, 'update'])->name('kendaraan.update');
     Route::delete('admin/kendaraan/{detailMobil}', [DetailMobilController::class, 'destroy'])-> name('kendaraan.destroy');
 
     // order 

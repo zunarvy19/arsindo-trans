@@ -69,8 +69,8 @@
          </li>
 
          <li>
-            <a href="/admin/faq/index" class="flex items-center p-2 text-gray-900 rounded-lg {{($title === 'FAQs Arsindo') ? 'bg-primary text-white font-bold' : 'bg-white' }}">
-              <svg class="h-6 w-6 text-neutral-600 {{($title === 'FAQs Arsindo') ? 'bg-primary text-white font-bold' : 'bg-white' }}"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <a href="/admin/faq/index" class="flex items-center p-2 text-gray-900 rounded-lg {{($title === 'FAQs Arsindo' || $title === 'Create FAQ' || $title === 'Update FAQ') ? 'bg-primary text-white font-bold' : 'bg-white' }}">
+              <svg class="h-6 w-6 text-neutral-600 {{($title === 'FAQs Arsindo' || $title === 'Create FAQ' || $title === 'Update FAQ') ? 'bg-primary text-white font-bold' : 'bg-white' }}"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
               </svg>
               
@@ -79,15 +79,15 @@
          </li>
 
         <li>
-            <a href="/admin/kendaraan/index" class="flex items-center p-2 text-gray-900 rounded-lg {{($title === 'Kendaraan Arsindo') ? 'bg-primary text-white font-bold' : 'bg-white' }}">
-              <svg class="h-6 w-6 text-neutral-500 {{($title === 'Kendaraan Arsindo') ? 'bg-primary text-white font-bold' : 'bg-white' }}"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="7" cy="17" r="2" />  <circle cx="17" cy="17" r="2" />  <path d="M5 17h-2v-6l2-5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5" /></svg>
+         <a href="/admin/kendaraan/index" class="flex items-center p-2 text-gray-900 rounded-lg {{($title === 'Kendaraan Arsindo' || $title === 'Tambah Kendaraan' || $title === 'Update Kendaraan') ? 'bg-primary text-white font-bold' : 'bg-white' }}">
+              <svg class="h-6 w-6 text-neutral-500 {{($title === 'Kendaraan Arsindo' || $title === 'Tambah Kendaraan' || $title === 'Update Kendaraan') ? 'bg-primary text-white font-bold' : 'bg-white' }}"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="7" cy="17" r="2" />  <circle cx="17" cy="17" r="2" />  <path d="M5 17h-2v-6l2-5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5" /></svg>
                <span class="flex-1 ms-3 whitespace-nowrap">Kendaraan</span>
             </a>
         </li>
 
         <li>
             <a href="/admin/order/index" class="flex items-center p-2 text-gray-900 rounded-lg {{($title === 'Booking Arsindo') ? 'bg-primary text-white font-bold' : 'bg-white' }}">
-              <svg class="h-6 w-6 text-neutral-600 {{($title === 'Booking Arsindo') ? 'bg-primary text-white font-bold' : 'bg-white' }}"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="9" cy="7" r="4" />  <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />  <path d="M16 11l2 2l4 -4" /></svg>
+              <svg class="h-6 w-6 text-neutral-600 {{($title === 'Booking Arsindo' ) ? 'bg-primary text-white font-bold' : 'bg-white' }}"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="9" cy="7" r="4" />  <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />  <path d="M16 11l2 2l4 -4" /></svg>
                 <span class="flex-1 ms-3 whitespace-nowrap">Order</span>
             </a>
         </li>

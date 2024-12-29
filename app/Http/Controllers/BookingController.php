@@ -49,9 +49,7 @@ class BookingController extends Controller
                 'alamatpenjemputan' => ['required', 'string', 'max:255'],
                 'tanggalpenjemputan' => ['required', 'date'],
                 'waktupenjemputan' => ['required', 'date_format:H:i'],
-                'tanggalpengantaran' => ['required', 'date'],
-                'waktupengantaran' => ['required', 'date_format:H:i'],
-                'identitas' => ['required', 'image', 'mimes:jpg,jpeg,png'],
+                'identitas' => ['image', 'mimes:jpg,jpeg,png'],
                 'tourguide' => ['required', 'boolean'],
             ]);
 

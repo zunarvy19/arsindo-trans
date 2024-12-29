@@ -23,9 +23,9 @@ class userController extends Controller
             $query->whereIn('kursi', $request->kursi);
         }
     
-        if ($request->has('transmisi') && is_array($request->transmisi)) {
-            $query->whereIn('transmisi', $request->transmisi);
-        }
+        // if ($request->has('transmisi') && is_array($request->transmisi)) {
+        //     $query->whereIn('transmisi', $request->transmisi);
+        // }
 
         if ($request->has('sort')) {
             if ($request->sort === 'price_asc') {

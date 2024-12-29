@@ -19,7 +19,7 @@ return new class extends Migration
             $table->time('waktupenjemputan');
             $table->date('tanggalpengantaran');
             $table->time('waktupengantaran');
-            $table->string('identitas');
+            $table->string('identitas')->nullable();
             $table->boolean('tourguide')->default(false);
             $table->timestamps();
 

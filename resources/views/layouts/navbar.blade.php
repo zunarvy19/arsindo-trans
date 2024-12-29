@@ -7,34 +7,37 @@
   <title> {{$title}} Arsindo</title>
   @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col">
 
-<nav class="absolute top-0 left-0 w-full z-10">
-  <div class="px-6 py-4 flex ">
+  <nav class="md:fixed top-0 left-0 w-full bg-transparent px-5 py-3 flex items-center justify-between z-50" id="navbar">
 
-    <div class="flex justify-start -mr-20">
+    <div class="text-lg font-bold text-black">
       <img src="/img/arsindo.png" alt="Logo" class="w-40">
     </div>
 
-    <div class="flex items-center mx-auto ">
-      <ul class="flex space-x-8 text-white font-semibold justify-center text-xl">
-        <li>
-          <a href="#home" class=" hover:underline hover:text-secondary">Beranda</a>
-        </li>
-        <li>
-          <a href="#layanan" class="hover:underline hover:text-secondary">Layanan</a>
-        </li>
-        <li>
-          <a href="#faq" class="hover:underline hover:text-secondary">FAQ's</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+    <!-- Menu Desktop -->
+    <ul class="hidden md:flex space-x-8 mx-auto text-white text-xl">
+      <li class=" cursor-pointer"><a href="#home" class=" hover:underline hover:underline-offset-4 hover:text-secondary">Beranda</a></li>
+      <li class=" cursor-pointer"><a href="#layanan" class=" hover:underline hover:underline-offset-4 hover:text-secondary">Layanan</a></li>
+      <li class=" cursor-pointer"><a href="#faq" class=" hover:underline hover:underline-offset-4 hover:text-secondary">FAQs</a></li>
+    </ul>
 
-  <div>
-    <button class="btn hidden"></button>
+    <!-- Burger Icon -->
+    <div class="md:hidden text-black cursor-pointer" id="burger-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </div>
+  </nav>
+
+  <!-- Menu Mobile -->
+  <div class="fixed top-[94px] md:top-0 left-0 h-full w-3/4 bg-primary text-white menu-enter hidden flex-col p-5 z-40" id="mobile-menu">
+    <ul class="space-y-4">
+      <li class=" cursor-pointer"><a href="#home" class=" hover:underline hover:underline-offset-4 hover:text-secondary">Beranda</a></li>
+      <li class=" cursor-pointer"><a href="#layanan" class=" hover:underline hover:underline-offset-4 hover:text-secondary">Layanan</a></li>
+      <li class=" cursor-pointer"><a href="#faq" class=" hover:underline hover:underline-offset-4 hover:text-secondary">FAQs</a></li>
+    </ul>
   </div>
-</nav>
 
 <div class="overflow-x-hidden">
   @yield('mainUser')
@@ -51,9 +54,8 @@
   </aside>
   <nav class="mt-5">
     <h6 class="text-black font-semibold text-xl">Produk dan Layanan</h6>
-    <a class="link link-hover">Sewa Jasa ArsindoTours</a>
-    <a class="link link-hover">Supir ArsindoTours</a>
-    <a class="link link-hover">Jenis Kendaraan ArsindoTours</a>
+    <a href="/detail-mobil" class="link link-hover">Sewa Jasa ArsindoTours</a>
+    <a href="/detail-mobil" class="link link-hover">Jenis Kendaraan ArsindoTours</a>
   </nav>
   <nav class="mt-5">
     <h6 class="text-black font-semibold text-xl">Tentang ArsindoTours</h6>
@@ -61,7 +63,7 @@
   </nav>
   <nav class="mt-5">
     <h6 class="text-black font-semibold text-xl">Layanan Pelanggan</h6>
-    <a class="link link-hover">Pengaduan Konsumen ArsindoTours</a>
+    <a href="https://wa.me/6287882797730" class="link link-hover">Pengaduan Konsumen ArsindoTours</a>
   </nav>
 </footer>
 <footer class="footer bg-secondary text-base-content px-10 py-4">
@@ -111,5 +113,61 @@
   </nav>
 </footer>
 </footer>
+
+<script>
+ const burgerIcon = document.getElementById('burger-icon');
+const mobileMenu = document.getElementById('mobile-menu');
+const navbar = document.getElementById('navbar');
+const navbarTrigger = document.querySelector('#navbar');
+
+// Tambahkan semua tautan di dalam menu mobile
+const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+burgerIcon.addEventListener('click', () => {
+  if (mobileMenu.classList.contains('hidden')) {
+    mobileMenu.classList.remove('hidden');
+    setTimeout(() => mobileMenu.classList.add('menu-enter-active'), 10);
+  } else {
+    mobileMenu.classList.remove('menu-enter-active');
+    setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+  }
+});
+
+// Tutup menu saat salah satu tautan diklik
+mobileMenuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('menu-enter-active');
+    setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+  });
+});
+
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', () => {
+  const currentScrollY = window.scrollY;
+
+  if (currentScrollY > lastScrollY && currentScrollY > 0) {
+    navbar.style.transform = 'translateY(-100%)'; 
+  } else {
+    navbar.style.transform = 'translateY(0)'; 
+  }
+
+  lastScrollY = currentScrollY;
+});
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        navbar.style.transform = 'translateY(0)'; 
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
+
+observer.observe(navbarTrigger);
+
+  </script>
 </body>
 </html>

@@ -37,10 +37,7 @@ class DetailMobilController extends Controller
         $validatedData = $request->validate([
             'ukuran' => ['string', 'required'],
             'mobil' => ['string', 'required'],
-            'transmisi' => ['required', 'string'],
             'kursi' => ['integer', 'required'],
-            'pintu' => ['integer', 'required'],
-            'bags' => ['integer', 'required'],
             'harga' => ['numeric', 'required'],
             'foto' => ['required', 'image', 'mimes:jpeg,png,jpg'],
         ]);
@@ -66,9 +63,9 @@ class DetailMobilController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(detailMobil $detailMobil)
     {
-        $data = detailMobil::find($id);
+        $data = detailMobil::find($detailMobil->id);
 
         return view ('admin.kendaraan.update',['title'=>"Update Kendaraan"], compact('data'));
     }
@@ -76,17 +73,14 @@ class DetailMobilController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, detailMobil $detailMobil)
     {
-        $detailMobil = detailMobil::findOrFail($id);
+        $detailMobil = detailMobil::findOrFail($detailMobil->id);
     
         $rules = [
             'ukuran' => ['string', 'required'],
             'mobil' => ['string', 'required'],
-            'transmisi' => ['required', 'string'],
             'kursi' => ['integer', 'required'],
-            'pintu' => ['integer', 'required'],
-            'bags' => ['integer', 'required'],
             'harga' => ['numeric', 'required'],
         ];
     

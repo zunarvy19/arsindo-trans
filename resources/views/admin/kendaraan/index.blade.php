@@ -43,9 +43,6 @@
           <th scope="col" class="px-4 py-1">Ukuran</th>
           <th scope="col" class="px-4 py-4 ">Mobil</th> 
           <th scope="col" class="px-4 py-4 ">Kursi</th> 
-          <th scope="col" class="px-4 py-4 ">Pintu</th> 
-          <th scope="col" class="px-4 py-4 ">Bags</th> 
-          <th scope="col" class="px-4 py-4 ">Transmisi</th> 
           <th scope="col" class="px-4 py-4 ">Harga</th> 
           <th scope="col" class="px-4 py-4 ">Foto</th> 
           <th scope="col" class="px-4 py-3 text-center">Actions</th>
@@ -59,9 +56,6 @@
           <td class="px-4 py-3 capitalize">{{$data->ukuran}}</td>
           <td class="px-4 py-3">{{ $data->mobil }}</td>
           <td class="px-4 py-3">{{ $data->kursi }}</td>
-          <td class="px-4 py-3">{{ $data->pintu }}</td>
-          <td class="px-4 py-3">{{ $data->bags }}</td>
-          <td class="px-4 py-3">{{ $data->transmisi }}</td>
           <td class="px-4 py-3">Rp. {{ number_format($data->harga, 0) }}</td>
           <td class="px-4 py-3">
             <img src="{{ asset('storage/' . $data->foto) }}" alt="Foto {{ $data->mobil }}" class="w-16 h-16 object-cover rounded-md" onclick="showModal('{{ asset('storage/' . $data->foto) }}')">

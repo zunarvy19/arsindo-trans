@@ -11,16 +11,16 @@
   
     {{-- header --}}
     <div class="w-full bg-primary flex flex-row items-center space-x-4">
-      <img src="/img/detail.png" alt="Arsindo Trans" class="w-28">
-      <p class="text-5xl text-secondary font-bold" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.61);">ArsindoTours</p>
+      <img src="/img/detail.png" alt="Arsindo Trans" class="w-14 md:w-28">
+      <p class="text-3xl md:text-5xl text-secondary font-bold" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.61);">ArsindoTours</p>
     </div>
     <div class="bg-secondary w-full h-6"></div>
     {{-- header end --}}
 
 
-    <section class="w-full bg-center bg-cover h-[264px]" style="background-image: url('/img/bookHero.png'); height: 264px;">
+    <section class="w-full bg-center bg-cover h-[200px]" style="background-image: url('/img/bookHero.png'); height: 264px;">
       <div class="flex justify-center items-center h-full">
-        <h1 class="text-6xl text-white font-bold capitalize">sewa jasa termurah di jakarta</h1>
+        <h1 class="text-4xl md:text-5xl text-white font-bold capitalize text-center">sewa jasa termurah di jakarta</h1>
       </div>
     </section>
     
@@ -28,11 +28,11 @@
     <div class=" my-20 mb-52">
       <hr class="border border-gray-300 w-[70%] mx-auto ">
 
-      <div class="my-20 container mx-auto">
-        <div class="flex flex-row space-x-20">
+      <div class="my-20 container mx-auto p-4">
+        <div class="flex flex-col space-y-10 md:flex md:flex-row md:space-x-20 md:space-y-0">
           {{-- choosen card --}}
-          <div class="bg-primary container w-full py-8 px-2 flex flex-row rounded-lg h-full">
-            <img src="{{ asset('storage/' . $kendaraan->foto) }}" alt="" class="w-1/2">
+          <div class="bg-primary max-w-md md:w-full md:min-w-fit py-8 px-5 md:px-2 flex flex-col md:flex-row rounded-lg h-full mx-auto md:mx-auto">
+            <img src="{{ asset('storage/' . $kendaraan->foto) }}" alt="" class="w-fit object-cover">
             <div class="flex flex-col text-white space-y-5">
               <h1 class="text-2xl font-semibold">{{$kendaraan->mobil}}</h1>
               <p class="flex flex-row items-center gap-x-2"><span><img src="/img/checkbox.png" alt=""></span>Direkomendasikan <span>{{$kendaraan->kursi}}</span> orang penumpang</p>
@@ -43,7 +43,7 @@
           </div>
           {{-- choosen card end --}}
 
-          <div class="bg-secondary container p-10 rounded-xl">
+          <div class="bg-secondary container p-10 rounded-xl flex flex-col space-y-10">
             <h1 class="text-3xl font-bold mb-10">Formulir Sewa Jasa Mobil</h1>
             {{-- form --}}
             <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data" id="bookingForm">
@@ -72,16 +72,16 @@
               </div>
           
               <!-- Tanggal dan Waktu Penjemputan -->
-              <div class="flex flex-row mb-5">
-                  <div class="flex flex-col w-72">
+              <div class="flex flex-col md:flex-row md:mb-5">
+                  <div class="flex flex-col w-full md:w-72">
                       <label for="tanggalpenjemputan">Tanggal Penjemputan: </label>
                       <input type="date" name="tanggalpenjemputan" required>
                       @error('tanggalpenjemputan')
                           <div class="text-red-500 text-sm">{{ $message }}</div>
                       @enderror
                   </div>
-                  <div class="divider divider-horizontal h-20"></div>
-                  <div class="flex flex-col w-72">
+                  <div class="md:divider md:divider-horizontal md:h-20 mt-5"></div>
+                  <div class="flex flex-col w-full md:w-72">
                       <label for="waktupenjemputan">Waktu Penjemputan (jam): </label>
                       <input type="time" name="waktupenjemputan" required>
                       @error('waktupenjemputan')
@@ -90,38 +90,19 @@
                   </div>
               </div>
           
-              <!-- Tanggal dan Waktu Pengantaran -->
-              <div class="flex flex-row mb-5">
-                  <div class="flex flex-col w-72">
-                      <label for="tanggalpengantaran">Tanggal Pengantaran: </label>
-                      <input type="date" name="tanggalpengantaran" required>
-                      @error('tanggalpengantaran')
-                          <div class="text-red-500 text-sm">{{ $message }}</div>
-                      @enderror
-                  </div>
-                  <div class="divider divider-horizontal h-20"></div>
-                  <div class="flex flex-col w-72">
-                      <label for="waktupengantaran">Waktu Pengantaran (jam): </label>
-                      <input type="time" name="waktupengantaran" required>
-                      @error('waktupengantaran')
-                          <div class="text-red-500 text-sm">{{ $message }}</div>
-                      @enderror
-                  </div>
-              </div>
-          
               <!-- Identitas -->
-              <div class="flex flex-row mb-5">
-                  <div class="flex flex-col w-72">
+              <div class="flex flex-col md:flex-row md:mb-5 my-5">
+                  <div class="flex flex-col w-full md:w-72">
                       <label for="identitas">Upload Identitas (KTP/SIM): </label>
                       <input accept="image/*" type="file" name="identitas" class="file-input file-input-bordered file-input-md w-full" required>
                       @error('identitas')
                           <div class="text-red-500 text-sm">{{ $message }}</div>
                       @enderror
                   </div>
-                  <div class="divider divider-horizontal h-20"></div>
-                  <div class="flex flex-col">
+                  <div class="md:divider md:divider-horizontal md:h-20"></div>
+                  <div class="flex flex-col mt-5 md:mt-0 w-full md:w-72">
                       <label for="tourguide">Perlu Tourguide?</label>
-                      <select name="tourguide" class="select w-full max-w-xs" required>
+                      <select name="tourguide" class="select w-full max-w-md" required>
                           <option value="1">Perlu Tourguide</option>
                           <option value="0">Tidak perlu Tourguide</option>
                       </select>
@@ -146,7 +127,7 @@
     <footer class="footer bg-secondary text-base-content p-10">
       <aside>
         <img src="/img/arsindo.png" alt="Logo" class="w-40">
-        <p class="text-justify w-96 font-semibold">
+        <p class="text-justify w-fit md:w-96 font-semibold max-w-sm md:max-w-md">
           Arsindo Tours adalah perusahaan penyedia jasa sewa mobil untuk keperluan wisata, bisnis, dan transportasi harian. 
           Mereka menawarkan berbagai pilihan kendaraan, dari mobil keluarga hingga minibus premium, 
           serta layanan tambahan seperti paket tur, sopir, dan akomodasi.
@@ -154,17 +135,16 @@
       </aside>
       <nav class="mt-5">
         <h6 class="text-black font-semibold text-xl">Produk dan Layanan</h6>
-        <a class="link link-hover">Sewa Jasa ArsindoTours</a>
-        <a class="link link-hover">Supir ArsindoTours</a>
-        <a class="link link-hover">Jenis Kendaraan ArsindoTours</a>
+        <a href="/detail-mobil" class="link link-hover">Sewa Jasa ArsindoTours</a>
+        <a href="/detail-mobil" class="link link-hover">Jenis Kendaraan ArsindoTours</a>
       </nav>
       <nav class="mt-5">
         <h6 class="text-black font-semibold text-xl">Tentang ArsindoTours</h6>
-        <a class="link link-hover">Faqs</a>
+        <a href="/" class="link link-hover">Faqs</a>
       </nav>
       <nav class="mt-5">
         <h6 class="text-black font-semibold text-xl">Layanan Pelanggan</h6>
-        <a class="link link-hover">Pengaduan Konsumen ArsindoTours</a>
+        <a href="https://wa.me/6287882797730" class="link link-hover">Pengaduan Konsumen ArsindoTours</a>
       </nav>
     </footer>
     <footer class="footer bg-secondary text-base-content px-10 py-4">
@@ -244,7 +224,7 @@
             Perlu Tourguide: ${tourguide}
         `.trim();
 
-        const phoneNumber = '6289676570369'; 
+        const phoneNumber = '6287882797730'; 
 
         const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 

@@ -25,3 +25,15 @@ body {
     -webkit-box-shadow: 7px 9px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 7px 9px 5px 0px rgba(0, 0, 0, 0.75);
 }
+
+.menu-enter {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+.menu-enter-active {
+    transform: translateX(0);
+}
+
+.transition-all {
+    transition: all 0.3s ease-in-out;
+}

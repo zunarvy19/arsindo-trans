@@ -11,7 +11,7 @@ class detailMobil extends Model
     use HasFactory;
 
     protected $fillable = [
-        'ukuran', 'mobil', 'foto', 'kursi', 'pintu', 'bags', 'transmisi', 'harga'
+        'ukuran', 'mobil', 'foto', 'kursi', 'harga'
     ];
 
     public function bookings(){
