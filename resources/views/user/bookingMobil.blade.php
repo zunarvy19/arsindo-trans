@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{$title}}</title>
   @vite(['resources/css/app.css','resources/js/app.js'])
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
   
@@ -52,6 +53,7 @@
 
               <input type="hidden" name="mobil_id" value="{{ $kendaraan->id }}">
               <input type="hidden" name="mobil" value="{{ $kendaraan->mobil }}" hidden>
+              <input type="hidden" name="harga" value="{{ $kendaraan->harga }}" hidden>
           
               <!-- Nama Lengkap -->
               <div>
@@ -195,9 +197,21 @@
     </footer>
     </footer>
 
+    @if(session('success'))
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Swal.fire({
+                title: 'Berhasil!',
+                text: "{{ session('success') }}",
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        });
+    </script>
+    @endif
 
     <script>
-          document.getElementById('submitBtn').addEventListener('click', function () {
+        document.getElementById('submitBtn').addEventListener('click', function () {
 
         const form = document.getElementById('bookingForm');
         const formData = new FormData(form);
@@ -207,8 +221,6 @@
         const mobil = formData.get('mobil');
         const tanggalpenjemputan = formatTanggal(formData.get('tanggalpenjemputan'));
         const waktupenjemputan = formData.get('waktupenjemputan');
-        const tanggalpengantaran = formatTanggal(formData.get('tanggalpengantaran'));
-        const waktupengantaran = formData.get('waktupengantaran');
         const tourguide = formData.get('tourguide') === '1' ? 'Ya' : 'Tidak';
 
         
@@ -219,8 +231,6 @@
             Alamat Penjemputan: ${alamatpenjemputan}
             Tanggal Penjemputan: ${tanggalpenjemputan}
             Waktu Penjemputan: ${waktupenjemputan}
-            Tanggal Pengantaran: ${tanggalpengantaran}
-            Waktu Pengantaran: ${waktupengantaran}
             Perlu Tourguide: ${tourguide}
         `.trim();
 
@@ -235,6 +245,7 @@
         const [year, month, day] = tanggal.split('-');
         return `${day}-${month}-${year}`;
     }
+
     </script>
     
 </body>

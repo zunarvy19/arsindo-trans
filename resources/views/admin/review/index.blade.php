@@ -4,33 +4,25 @@
 <section class="w-full">
   <div id="mainbar" class="fixed left-0 top-0 pt-16 w-full md:pl-64">
       <div class="px-4 md:px-8">
-          <h1 class="text-start capitalize text-3xl py-5">Data Kendaraan</h1>
+          <h1 class="text-start capitalize text-3xl py-5">Data Review</h1>
       <hr class="w-full border border-gray-200">
   
       <div class="mt-20">
-        <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-            <div class="relative bg-white rounded-lg shadow-lg p-4">
-                <button onclick="hideModal()" 
-                        class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
-                    &times;
-                </button>
-                <img id="modalImage" src="" alt="Preview" class="max-w-full max-h-[80vh] rounded-md">
-            </div>
-        </div>
+  
           <div class="flex justify-between items-center ">
               <div class="flex flex-col">
-                  <h1 class="text-3xl" >Kendaraan</h1>
+                  <h1 class="text-3xl" >Review</h1>
                   <hr class="w-40 border-2 border-secondary my-4">
               </div>
               <div>
-                  <a href="/admin/kendaraan/create">
+                  <a href="/admin/review/create">
                       <button type="button " class="btn btn-error text-white"
                         >Buat Data
                       </button>
                   </a>
               </div>
           </div>
-    
+          
           @php
               $no = 1;
           @endphp
@@ -40,30 +32,25 @@
   <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr>
           <th scope="col" class="px-4 py-1">No. </th>
-          <th scope="col" class="px-4 py-1">Ukuran</th>
-          <th scope="col" class="px-4 py-4 ">Mobil</th> 
-          <th scope="col" class="px-4 py-4 ">Kursi</th> 
-          <th scope="col" class="px-4 py-4 ">Harga</th> 
-          <th scope="col" class="px-4 py-4 ">Foto</th> 
+          <th scope="col" class="px-4 py-1">Nama</th>
+          <th scope="col" class="px-4 py-4 ">Review</th> 
+          <th scope="col" class="px-4 py-4 ">Profile</th> 
           <th scope="col" class="px-4 py-3 text-center">Actions</th>
       </tr>
   </thead>
   <tbody>
-
-      @forelse ($detailMobil as $data)
+      @forelse ($dataReview as $data)
       <tr class="border-b dark:border-gray-700">
           <th scope="row" class="px-4 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$no++}}</th>
-          <td class="px-4 py-3 capitalize">{{$data->ukuran}}</td>
-          <td class="px-4 py-3">{{ $data->mobil }}</td>
-          <td class="px-4 py-3">{{ $data->kursi }}</td>
-          <td class="px-4 py-3">Rp. {{ number_format($data->harga, 0) }}</td>
+          <td class="px-4 py-3 capitalize">{{$data->nama}}</td>
+          <td class="px-4 py-3">{{ $data->review }}</td>
           <td class="px-4 py-3">
-            <img src="{{ asset('storage/' . $data->foto) }}" alt="Foto {{ $data->mobil }}" class="w-16 h-16 object-cover rounded-md" onclick="showModal('{{ asset('storage/' . $data->foto) }}')">
+            <img src="{{ asset('storage/' . $data->profile) }}" alt="Foto {{ $data->review }}" class="w-16 h-16 object-cover rounded-md" onclick="showModal('{{ asset('storage/' . $data->profile) }}')">
           </td>
           <td class="px-4 py-3">
                   <ul class=" text-sm flex flex-col md:flex-row items-center justify-center" aria-labelledby="apple-imac-27-dropdown-button">
                       <li>
-                          <a href="/admin/kendaraan/{{$data->id}}}/edit"> 
+                          <a href="/admin/review/{{$data->id}}}/edit"> 
                               <button type="button" data-modal-target="updateProductModal" data-modal-toggle="updateProductModal" class="flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-gray-700 dark:text-gray-200">
                                   <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                       <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
@@ -74,7 +61,7 @@
                           </a>
                       </li>
                       <li>
-                          <form id="delete-form-{{ $data->id }}"  action="{{ route('kendaraan.destroy', $data->id) }}" method="POST">
+                          <form id="delete-form-{{ $data->id }}"  action="{{ route('review.destroy', $data->id) }}" method="POST">
                               @csrf
                               @method('DELETE')
                               <button onclick="confirmDelete({{ $data->id }})" class="flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 text-red-500 dark:hover:text-red-400">
@@ -90,17 +77,17 @@
       </tr>
       @empty
       <tr>
-        <td colspan="9" class="px-4 py-3 text-center text-gray-500 dark:text-gray-400">
-            Tidak ada data yang bisa ditampilkan
-        </td>
+          <td colspan="11" class="px-4 py-3 text-center text-gray-500 dark:text-gray-400">
+              Tidak ada data yang bisa ditampilkan
+          </td>
       </tr>
       @endforelse
   </tbody>
   </table>
   </div>
   <div class="mt-5">
-    {{ $detailMobil->links('vendor.pagination.tailwind') }}
-</div>
+    {{ $dataReview->links('vendor.pagination.tailwind') }}
+    </div>
       </div>
       </div>
     </div>
@@ -123,23 +110,5 @@
               }
           });
       }
-
-      function showModal(imageUrl) {
-        const modal = document.getElementById('imageModal');
-        const modalImage = document.getElementById('modalImage');
-
-
-        modalImage.src = imageUrl;
-
-
-        modal.classList.remove('hidden');
-        modal.classList.add('flex'); 
-    }
-
-    function hideModal() {
-        const modal = document.getElementById('imageModal');
-        modal.classList.add('hidden');
-        modal.classList.remove('flex'); 
-    }
   </script>
 @endsection

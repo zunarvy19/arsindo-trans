@@ -12,7 +12,7 @@ class booking extends Model
 
     protected $fillable = [
         'namalengkap', 'tanggalpenjemputan', 'waktupenjemputan', 'identitas', 
-        'tourguide', 'mobil_id', 'alamatpenjemputan'
+        'tourguide', 'mobil_id', 'alamatpenjemputan', 'harga'
     ];
 
     public function detailMobil(){

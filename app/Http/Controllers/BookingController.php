@@ -23,10 +23,9 @@ class BookingController extends Controller
 
     public function index()
     {
-        $dataBooking = booking::with('detailMobil')->get();
-        // dd($dataBooking);
-        return view('admin.order.index', ['title'=> 'Booking Arsindo'], compact('dataBooking'));
-    }
+        $dataBooking = booking::with('detailMobil')->paginate(3);
+        return view('admin.order.index', ['title' => 'Booking Arsindo'], compact('dataBooking'));
+    }    
 
     /**
      * Show the form for creating a new resource.
@@ -50,6 +49,7 @@ class BookingController extends Controller
                 'tanggalpenjemputan' => ['required', 'date'],
                 'waktupenjemputan' => ['required', 'date_format:H:i'],
                 'identitas' => ['image', 'mimes:jpg,jpeg,png'],
+                'harga' => ['numeric', 'required'],
                 'tourguide' => ['required', 'boolean'],
             ]);
 
@@ -59,7 +59,7 @@ class BookingController extends Controller
     
             booking::create($dataBooking);
 
-            return redirect()->back()->with('success', 'Booking berhasil dibuat!');
+            return redirect()->back()->with('success', 'Data berhasil disimpan!');
     }
     
     
@@ -77,7 +77,9 @@ class BookingController extends Controller
      */
     public function edit(booking $booking)
     {
-        //
+        $data = booking::with('detailMobil')->find($booking->id);
+
+        return view('admin.order.update', ['title' => 'Update Booking'], compact('data'));
     }
 
     /**
@@ -85,7 +87,19 @@ class BookingController extends Controller
      */
     public function update(Request $request, booking $booking)
     {
-        //
+
+        
+        $detailOrder = booking::findOrFail($booking->id);
+
+        $rules = [
+            'harga' => ['numeric', 'required'],
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        $detailOrder->update($validatedData);
+
+        return redirect()->route('booking.index')->with('success', 'Data berhasil diupdate!');
     }
 
     /**

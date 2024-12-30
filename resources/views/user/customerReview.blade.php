@@ -25,6 +25,21 @@
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 my-10">
+
+      @forelse ($dataReview as $item)
+      <div class="w-[90%] mx-auto p-6 bg-white border border-gray-300 rounded-lg flex items-center space-x-4">
+        <div class="w-24 h-24 rounded-full border-2 border-blue-500 overflow-hidden">
+          <img src="{{ asset('storage/' . $item->profile) }}" alt="{{ $item->mobil }}" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-1">
+          <h3 class="text-lg font-bold">{{$item->nama}}</h3>
+          <p class="text-gray-600 mt-2">{{$item->review}}</p>
+        </div>
+        <div class="text-blue-500 text-3xl">
+          <i class="fas fa-quote-right"></i>
+        </div>
+      </div>
+      @empty
       <!-- Card 1 -->
       <div class="w-[90%] mx-auto p-6 bg-white border border-gray-300 rounded-lg flex items-center space-x-4">
         <div class="w-24 h-24 rounded-full border-2 border-blue-500 overflow-hidden">
@@ -109,6 +124,8 @@
         </div>
         
       </div>
+      @endforelse
+
     </div>
 
     

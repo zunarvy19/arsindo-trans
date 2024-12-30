@@ -5,6 +5,7 @@ use App\Http\Controllers\AskedQuestionController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DetailMobilController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
@@ -53,7 +54,17 @@ Route::middleware('auth')->group(function () {
     route::get("/admin/order/index", [BookingController::class, 'index'])->name('booking.index');
     route::delete('/admin/order/{booking}', [BookingController::class, 'destroy'])->name('booking.destroy');
     Route::get('/booking-pdf/{id}', [BookingController::class, 'generatePDF'])->name('booking.pdf');
-    
+    // order update
+    route::get('/admin/order/{booking}/edit', [BookingController::class, 'edit'])->name('booking.edit');
+    route::put('/admin/order/{booking}', [BookingController::class, 'update'])->name('booking.update');
+
+    // review 
+    Route::get('/admin/review/index', [ReviewController::class, 'index'])->name('review.index');
+    Route::get('/admin/review/create', [ReviewController::class, 'create'])->name('review.create');
+    Route::post('/admin/review/store', [ReviewController::class, 'store'])->name('review.store');
+    Route::get('/admin/review/{review}/edit', [ReviewController::class, 'edit'])->name('review.edit');
+    Route::put('/admin/review/{review}', [ReviewController::class, 'update'])->name('review.update');
+    Route::delete('admin/review/{review}', [ReviewController::class, 'destroy'])-> name('review.destroy');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

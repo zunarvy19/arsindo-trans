@@ -328,6 +328,23 @@
     <!-- Carousel Section -->
     <div class="mt-10 md:mt-0">
       <div class="carousel carousel-vertical rounded-box h-96 space-y-16 md:-space-y-48">
+        @forelse ($dataReview as $item)
+        <div class="carousel-item h-full">
+          <div class="w-[80%] h-fit mx-auto p-6 bg-white shadow-lg rounded-lg flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4">
+            <!-- Image -->
+            <div class="w-24 h-24 rounded-full border-2 border-blue-500 overflow-hidden">
+              <img src="{{ asset('storage/' . $item->profile) }}" alt="{{ $item->mobil }}" class="w-full h-full object-cover" />
+            </div>
+            <!-- Content -->
+            <div class="flex-1">
+              <h3 class="text-lg font-bold">{{$item->nama}}</h3>
+              <p class="text-gray-600 mt-2">
+                {{$item->review}}
+              </p>
+            </div>
+          </div>
+        </div>
+        @empty
         <!-- Item 1 -->
         <div class="carousel-item h-full">
           <div class="w-[80%] h-fit mx-auto p-6 bg-white shadow-lg rounded-lg flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4">
@@ -358,6 +375,7 @@
             </div>
           </div>
         </div>
+        @endforelse
         
       </div>
     </div>

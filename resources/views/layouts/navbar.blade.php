@@ -46,7 +46,7 @@
 <footer class="footer bg-secondary text-base-content p-10">
   <aside>
     <img src="/img/arsindo.png" alt="Logo" class="w-40">
-    <p class="text-justify w-96 font-semibold">
+    <p class="text-justify w-fit md:w-96 font-semibold max-w-sm md:max-w-md">
       Arsindo Tours adalah perusahaan penyedia jasa sewa mobil untuk keperluan wisata, bisnis, dan transportasi harian. 
       Mereka menawarkan berbagai pilihan kendaraan, dari mobil keluarga hingga minibus premium, 
       serta layanan tambahan seperti paket tur, sopir, dan akomodasi.
@@ -59,7 +59,7 @@
   </nav>
   <nav class="mt-5">
     <h6 class="text-black font-semibold text-xl">Tentang ArsindoTours</h6>
-    <a class="link link-hover">Faqs</a>
+    <a href="/" class="link link-hover">Faqs</a>
   </nav>
   <nav class="mt-5">
     <h6 class="text-black font-semibold text-xl">Layanan Pelanggan</h6>

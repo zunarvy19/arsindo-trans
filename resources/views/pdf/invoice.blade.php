@@ -103,7 +103,7 @@
               <td>{{ $dataBooking->detailMobil->mobil }}</td>
           </tr>
               <th>Harga Sewa</th>
-              <td>{{ number_format($dataBooking->detailMobil->harga, 0, ',', '.') }}</td>
+              <td>{{ number_format($dataBooking->harga, 0, ',', '.') }}</td>
           </tr>
           <tr>
               <th>Alamat Penjemputan</th>
@@ -118,26 +118,18 @@
               <td>{{ \Carbon\Carbon::parse($dataBooking->waktupenjemputan)->format('H:i') }}</td>
           </tr>
           <tr>
-              <th>Tanggal Pengantaran</th>
-              <td>{{ \Carbon\Carbon::parse($dataBooking->tanggalpengantaran)->format('d-m-Y') }}</td>
-          </tr>
-          <tr>
-              <th>Waktu Pengantaran</th>
-              <td>{{ \Carbon\Carbon::parse($dataBooking->waktupengantaran)->format('H:i') }}</td>
-          </tr>
-          <tr>
               <th>Tourguide</th>
               <td>{{ $dataBooking->tourguide ? 'Pakai Tourguide' : 'Tidak Pakai Tourguide' }}</td>
           </tr>
       </table>
         <div class="total-section">
-            <p>Sub-total: Rp {{ number_format($dataBooking->detailMobil->harga, 0, ',', '.') }}</p>
-            <h3>Total: Rp {{ number_format($dataBooking->detailMobil->harga, 0, ',', '.') }}</h3>
+            <p>Sub-total: Rp {{ number_format($dataBooking->harga, 0, ',', '.') }}</p>
+            <h3>Total: Rp {{ number_format($dataBooking->harga, 0, ',', '.') }}</h3>
         </div>
         <div class="footer">
             <p class="footerHeader">Thank you for your purchase!</p>
             <p>Contact Us. </p>
-            <p>Phone: 08123456789</p>
+            <p>Phone: 087882797730</p>
             <p>Email: arsindo@gmail.com </p>
         </div>
     </div>

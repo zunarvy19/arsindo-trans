@@ -13,7 +13,7 @@ class DetailMobilController extends Controller
      */
     public function index()
     {
-        $detailMobil = detailMobil::all()->sortBy('created_at');
+        $detailMobil = detailMobil::paginate(5);
 
         return view('admin.kendaraan.index', ['title' => 'Kendaraan Arsindo'], compact('detailMobil'));
     }
